@@ -1,43 +1,25 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combination Lock Access</title>
+    <title>Lock Bridge</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        form {
-            margin-top: 30px;
-        }
-        input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>Combination Lock Access</h1>
-    <p>Scan the QR code on the combination lock to access this page.</p>
-    
-    <form action="payment.php" method="POST">
-        <label for="amount">Access Fee: $5.00</label><br><br>
-        <input type="submit" value="Pay Now">
+    <h1>Lock Bridge</h1>
+    <form id="lock-form">
+        <label for="lock-id">Enter Lock Identifier:</label>
+        <input type="text" id="lock-id" placeholder="Enter your lock's unique identifier">
+        <button type="submit">Unlock Your Lock</button>
     </form>
+    <div id="lock-content"></div>
 
-    <script>
-        // This code will handle the payment process and display the combination
-        // You'll need to integrate a payment gateway and generate a unique combination for each lock
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
