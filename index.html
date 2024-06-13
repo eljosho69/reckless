@@ -1,25 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lock Bridge</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-    </style>
+  <title>Lock Combination Purchase</title>
+  <style>
+    /* Add some basic styling to make the page look nicer */
+    body {
+      font-family: Arial, sans-serif;
+      width: 800px;
+      margin: 40px auto;
+    }
+  </style>
 </head>
 <body>
-    <h1>Lock Bridge</h1>
-    <form id="lock-form">
-        <label for="lock-id">Enter Lock Identifier:</label>
-        <input type="text" id="lock-id" placeholder="Enter your lock's unique identifier">
-        <button type="submit">Unlock Your Lock</button>
-    </form>
-    <div id="lock-content"></div>
+  <h1>Lock Combination Purchase</h1>
+  <p>Scan the QR code on your padlock to identify the correct combination:</p>
+  <div id="qr-code-container">
+    <!-- QR code will be displayed here -->
+  </div>
+  <form id="purchase-form">
+    <label for="combination">Enter Combination:</label>
+    <input type="text" id="combination" name="combination">
+    <button type="submit">Purchase Combination</button>
+  </form>
+  <div id="purchase-message"></div>
 
-    <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qr-code-scanner@1.0.0/dist/qr-code-scanner.min.js"></script>
+  <script>
+    // Initialize the QR code scanner
+    const qrCodeScanner = new QRCodeScanner();
+    qrCodeScanner.scan()
+      .then((result) => {
+        // Display the QR code on the page
+        const qrCodeElement = document.getElementById('qr-code-container');
+        qrCodeElement.innerHTML = `<img src="${result.data}" alt="QR Code">`;
+        // Check if the QR code is valid and contains the correct combination
+        const combination = getCombinationFromQRCode(result.data);
+        if (combination) {
+          // Display the combination in the form input field
+          document.getElementById('combination').value = combination;
+          // Enable the purchase button
+          document.getElementById('purchase-form').reset();
+        } else {
+          // Display an error message if the QR code is invalid or doesn't contain a combination
+          document.getElementById('purchase-message').innerHTML = 'Invalid QR code or no combination found';
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    function getCombinationFromQRCode(qrCodeData) {
+      // Implement your logic to extract the combination from the QR code data
+      // For example, you can use a regex to match the combination pattern
+      const pattern = /([0-9]{3})/;
+      const match = qrCodeData.match(pattern);
+      if (match) {
+        return match[1];
+      }
+      return null;
+    }
+  </script>
 </body>
 </html>
