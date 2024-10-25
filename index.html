@@ -3,220 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alien Warez 1999</title>
+    <meta name="description" content="Quantum Scrap Solutions offers free scrap metal pickup and removal. Contact us today to get rid of your scrap efficiently and responsibly.">
+    <title>Quantum Scrap Solutions</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-        body, html {
-            height: 100%;
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Press Start 2P', cursive;
-            background-color: #000;
-            color: #0f0;
-            overflow-x: hidden;
-            cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABFklEQVRYR9WXURLDIAhE6/0PbSdOtUpcd1Gnpv1KGpTHBpCE1/cXq+vrMph7dGvXZTtpfW10DCA5jrH1H0Jhs5E0hnZdCR+vb5S8Nn8mQCeS9BdSalYJqMBjAGzq59xAESN7VFVUgV8AZB/dZBR7QTFDCqGquvUBVVoEtgIwpQRzmANSFHgWQKExHdIrPeuMvQNDarXe6nC/AutgV3JW+6bgqQLeV8FekRtgV+ToDKEKnACYKsfZjjkam7a0ZpYTytwmgainpC3HvwBocgKOxqRjehoR9DFKNFYtOwCGYCszobeCbl26N6yyQ6g8X/Wex/rBPsNEV6qAMaJPMynIHQCoSqS9JSMmwef51LflTgCRszU7DvAGiV6mHWfsaVUAAAAASUVORK5CYII='), auto;
-        }
-
-        #matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 2px solid #0f0;
-            box-shadow: 0 0 20px #0f0;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 3em;
-            color: #0f0;
-            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
-            animation: glow 1.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0; }
-            to { text-shadow: 0 0 20px #0f0, 0 0 30px #0f0, 0 0 40px #0f0, 0 0 50px #0f0; }
-        }
-
-        .alien-text {
-            font-size: 1.2em;
-            color: #f0f;
-            text-shadow: 0 0 5px #f0f, 0 0 10px #f0f;
-            margin-bottom: 20px;
-        }
-
-        .download-section {
-            background-color: #000;
-            border: 1px solid #0f0;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .download-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #f00;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            animation: pulse 1s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        .counter {
-            font-size: 0.8em;
-            color: #ff0;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .marquee {
-            background-color: #000;
-            color: #0f0;
-            padding: 10px;
-            white-space: nowrap;
-            overflow: hidden;
             box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
         }
 
-        .marquee p {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 20s linear infinite;
+        header {
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 1px solid #d2d2d7;
         }
 
-        @keyframes marquee {
-            0%   { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
+        header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
         }
 
-        .blink {
-            animation: blink-animation 1s steps(5, start) infinite;
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 10px;
         }
 
-        @keyframes blink-animation {
-            to { visibility: hidden; }
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #0070c9;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #fff;
+        }
+
+        .hero-section h2 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1d1d1f;
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            color: #6e6e73;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            background-color: #0070c9;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #005bb5;
+        }
+
+        .features-section {
+            display: flex;
+            justify-content: space-around;
+            margin: 60px 0;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #6e6e73;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        footer p {
+            color: #6e6e73;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <canvas id="matrix-bg"></canvas>
-    <div class="container">
-<h1>
-<pre>
- ________  _______   _______   ________   
-|\   ___ \|\  ___ \ |\  ___ \ |\   __  \  
-\ \  \_|\ \ \   __/|\ \   __/|\ \  \|\  \ 
- \ \  \ \\ \ \  \_|/_\ \  \_|/_\ \   ____\
-  \ \  \_\\ \ \  \_|\ \ \  \_|\ \ \  \___|
-   \ \_______\ \_______\ \_______\ \__\   
-    \|_______|\|_______|\|_______|\|__|
- ________  _________  ________  _________  _______      
-|\   ____\|\___   ___|\   __  \|\___   ___|\  ___ \     
-\ \  \___|\|___ \  \_\ \  \|\  \|___ \  \_\ \   __/|    
- \ \_____  \   \ \  \ \ \   __  \   \ \  \ \ \  \_|/__  
-  \|____|\  \   \ \  \ \ \  \ \  \   \ \  \ \ \  \_|\ \ 
-    ____\_\  \   \ \__\ \ \__\ \__\   \ \__\ \ \_______\
-   |\_________\   \|__|  \|__|\|__|    \|__|  \|_______|
-   \|_________|                                         
- ________  ___  ________  ___  ________   ________ ________     
-|\   ___ \|\  \|\   ____\|\  \|\   ___  \|\  _____|\   __  \    
-\ \  \_|\ \ \  \ \  \___|\ \  \ \  \\ \  \ \  \__/\ \  \|\  \   
- \ \  \ \\ \ \  \ \_____  \ \  \ \  \\ \  \ \   __\\ \  \\\  \  
-  \ \  \_\\ \ \  \|____|\  \ \  \ \  \\ \  \ \  \_| \ \  \\\  \ 
-   \ \_______\ \__\____\_\  \ \__\ \__\\ \__\ \__\   \ \_______\
-    \|_______|\|__|\_________\|__|\|__| \|__|\|__|    \|_______|
-                  \|_________|                                                                                                                                                                     
-
-</pre>
-</h1>
-        <div class="marquee">
-            <p>You have entered the shadow governments super secret lair where the most classified documents are held</p>
-        </div>
-        <p class="alien-text">
-    TOP SECRET: EYES ONLY<br><br>
-    Greetings, Illuminati operatives and shadow government agents. This classified document contains vital information on our ongoing extraterrestrial collaborations and covert operations. Proceed with utmost caution. Remember, denial is our best defense.<br><br>
-    DESTROY AFTER READING
-</p>        <div class="download-section">
-            <h2 style="color: #0f0;">
-</h2>
-<pre>
- ____ __ _ ____ ____ ____         __ ____        _  _ __  _  _ ____         __  _  _ __ _        ____ __ ____ __ _ 
-(  __(  ( (_  _(  __(  _ \       / _(_  _)      ( \/ /  \/ )( (  _ \       /  \/ )( (  ( \      (  _ (  / ___(  / )
- ) _)/    / )(  ) _) )   /      /    \)(         )  (  O ) \/ ()   /      (  O \ /\ /    /       )   /)(\___ \)  ( 
-(____\_)__)(__)(____(__\_)      \_/\_(__)       (__/ \__/\____(__\_)       \__/(_/\_\_)__)      (__\_(__(____(__\_)
-<?pre>
-<ul>
-                <li><a href="ufopage.html" class="download-button">UFO Pictures</a></li>
-                <li><a href="#" class="download-button">2 Old Guys With a 2x4</a></li>
-                <li><a href="#" class="download-button">4chan Leaks</a></li>
-                <li><a href="#" class="download-button">The Woo</a></li>
+    <header>
+        <h1>Quantum Scrap Solutions</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <h2>Free Scrap Metal Pickup & Removal</h2>
+        <p>Get rid of your scrap metal fast, efficiently, and responsibly.</p>
+        <a href="#contact" class="cta-button">Contact Us Today</a>
+    </section>
+
+    <section class="features-section">
+        <div class="feature">
+            <h3>Free Pickup</h3>
+            <p>We offer a completely free scrap metal pickup service.</p>
         </div>
-        <p class="counter">Visitors: <span id="visitor-count" class="blink">1337</span></p>
-    </div>
+        <div class="feature">
+            <h3>Quick Service</h3>
+            <p>Same-day or next-day pickup for your convenience.</p>
+        </div>
+        <div class="feature">
+            <h3>Environmentally Responsible</h3>
+            <p>We recycle scrap metal in the most eco-friendly way.</p>
+        </div>
+    </section>
 
-    <script>page
-        // Matrix rain effect
-        const canvas = document.getElementById('matrix-bg');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%';
-        const fontSize = 10;
-        const columns = canvas.width / fontSize;
-
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
-
-        function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#0f0';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        setInterval(draw, 33);
-
-        // Visitor counter
-        let visitorCount = 1337;
-        setInterval(() => {
-            visitorCount += Math.floor(Math.random() * 10);
-            document.getElementById('visitor-count').textContent = visitorCount;
-        }, 5000);
-    </script>
+    <footer>
+        <p>&copy; 2024 Quantum Scrap Solutions. All rights reserved.</p>
+    </footer>
 </body>
 </html>
