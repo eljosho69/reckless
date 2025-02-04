@@ -8,20 +8,22 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
+            padding: 50px 0 0 0;
             background-color: #000;
             color: #00ffcc;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             min-height: 100vh;
             overflow-x: hidden;
+            overflow: visible;
         }
 
-        h1, h2, p {
+        h1 {
             text-shadow: 0 0 25px #00ffcc, 0 0 35px #ff00ff;
+            margin-top: 20px;
         }
 
         .glitch {
@@ -38,7 +40,7 @@
             100% { clip-path: inset(0% 0 10% 0); transform: translate(0, 0); }
         }
 
-        /* 3D rotating cube fix */
+        /* 3D Cube */
         .cube-container {
             display: flex;
             justify-content: center;
@@ -46,15 +48,15 @@
             perspective: 800px;
             width: 100vw;
             height: 300px;
-            margin-top: 20px;
+            margin-top: 40px;
         }
 
         .cube {
             width: 200px;
             height: 200px;
-            transform-style: preserve-3d;
-            animation: rotateCube 10s infinite linear;
             position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 5s infinite linear;
         }
 
         .cube div {
@@ -65,6 +67,13 @@
             border: 3px solid #00ffcc;
             box-shadow: 0 0 30px #00ffcc;
         }
+
+        .cube div:nth-child(1) { transform: rotateY(0deg) translateZ(100px); }
+        .cube div:nth-child(2) { transform: rotateY(90deg) translateZ(100px); }
+        .cube div:nth-child(3) { transform: rotateY(180deg) translateZ(100px); }
+        .cube div:nth-child(4) { transform: rotateY(-90deg) translateZ(100px); }
+        .cube div:nth-child(5) { transform: rotateX(90deg) translateZ(100px); }
+        .cube div:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); }
 
         @keyframes rotateCube {
             0% { transform: rotateX(0deg) rotateY(0deg); }
@@ -112,7 +121,7 @@
     </style>
 </head>
 <body>
-    <h1 class="glitch">Portfolio</h1>
+    
 
     <div class="cube-container">
         <div class="cube">
