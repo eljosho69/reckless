@@ -11,6 +11,7 @@
             color: #00FF00;
             font-family: "Px437 IBM VGA8", monospace;
             text-shadow: 0px 0px 15px rgba(0, 255, 0, 1);
+            text-align: center;
         }
 
         /* Links */
@@ -35,18 +36,28 @@
             to { width: 100%; }
         }
 
+        .typewriter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            margin-top: 20px; /* Pushes the text down so it doesn't overlap */
+        }
+
         .typewriter {
             display: inline-block;
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid #00FF00;
             animation: typing 3s steps(40, end) forwards, pulse 1.5s infinite alternate;
+            font-size: 18px;
         }
 
         /* ASCII Art Glow */
         .ascii {
             animation: pulse 1.5s infinite alternate;
             text-align: center;
+            margin-bottom: 30px; /* Adds spacing so text doesn't overlap */
         }
 
         /* Skulls Positioned in Corners */
@@ -114,6 +125,7 @@
      \_|__|__|_/
     </pre>
 
+    <!-- ASCII Banner -->
     <div class="container">
         <pre class="ascii">
             ____    __    ____  _______  __        ______   ______   .___  ___.  _______              
@@ -125,7 +137,11 @@
         </pre>
     </div>
 
-    <p class="typewriter">Welcome to digital purgatory. Tread carefully, you never know what could be lurking about.</p>
+    <!-- Typewriter Text Below the Banner -->
+    <div class="typewriter-container">
+        <p class="typewriter">Welcome to digital purgatory. Tread carefully, you never know what could be lurking about.</p>
+    </div>
+
     <ul>
         <li class="typewriter"><a href="nfo/wifi-optimization.nfo">WIFI_OPTIMIZATION.nfo</a></li>
         <li class="typewriter"><a href="nfo/rtl-sdr-experiments.nfo">RTL-SDR Sorcery.nfo</a></li>
