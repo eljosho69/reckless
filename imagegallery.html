@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+
+        h1 {
+            text-shadow: 0 0 25px #00ffcc, 0 0 35px #ff00ff;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: auto;
+            border: 3px solid #00ffcc;
+            box-shadow: 0 0 20px #00ffcc;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .navigation {
+            margin-top: 30px;
+        }
+
+        .button {
+            background-color: #111;
+            color: #FFF;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 0 30px #00ffcc, 0 0 50px #ff00ff;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            background-color: #00ffcc;
+            color: #000;
+            box-shadow: 0 0 40px #00ffcc, 0 0 60px #ff00ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <p>Upload your images to a GitHub Issue and paste the direct URLs below.</p>
+    <div class="gallery">
+        <img src="https://github.com/user-attachments/assets/ad0d39bb-0557-4f82-b50a-ed60c3c64acc" alt="Image 1">
+        <img src="https://github.com/user-attachments/assets/cb4fc4f6-f13a-451d-9701-ca726276b0ea" alt="Image 2">
+        <img src="https://github.com/user-attachments/assets/c26010ac-edb0-4b8f-8c72-cdf9febc2a10" alt="Image 3">
+        <img src="https://github.com/user-attachments/assets/a3eb7f90-16a2-4987-9f3d-9a9fecf8db0f" alt="Image 4">
+        <img src="https://github.com/user-attachments/assets/963abd81-0939-430c-9026-107d17c2dbeb" alt="Image 5">
+        <img src="https://github.com/user-attachments/assets/7a749f13-a1b1-4ffa-8442-a69ecab4711e" alt="Image 6">
+        <img src="https://github.com/user-attachments/assets/083ba8da-e04b-49ba-a1fb-28d41a6975a6" alt="Image 7">
+        <img src="https://github.com/user-attachments/assets/c2b7db36-8b9c-429d-8d38-9def8ec11373" alt="Image 8">
+        <img src="https://github.com/user-attachments/assets/a41c2be0-40b3-4f5d-91eb-3773cdf90af8" alt="Image 9">
+        <img src="https://github.com/user-attachments/assets/13f36349-fed9-437d-93b4-642fe270713f" alt="Image 10">
+        <img src="https://github.com/user-attachments/assets/cfb811e2-a79c-49ce-92eb-cee2bc740000" alt="Image 11">
+        <img src="https://github.com/user-attachments/assets/4fbbd40c-d378-47c3-b033-62a2791045cd" alt="Image 12">
+        <img src="https://github.com/user-attachments/assets/de7c60ac-b5d2-4a77-a575-a1b40556b49d" alt="Image 13">
+        <img src="https://github.com/user-attachments/assets/c45c80f4-23e3-45a4-b6cf-538c11e3687a" alt="Image 14">
+        <img src="https://github.com/user-attachments/assets/4d05cf87-93ab-44e0-b01d-1e2f9c4333af" alt="Image 15">
+        <img src="https://github.com/user-attachments/assets/169d94c4-4c60-4368-a1a4-e15fa9cf388b" alt="Image 16">
+        <img src="https://github.com/user-attachments/assets/d794f79f-30fb-412a-ab0e-a4ef8eac5ef9" alt="Image 17">
+    </div>
+    <div class="navigation">
+        <a href="index.html" class="button">Back to Portfolio</a>
+    </div>
+</body>
+</html>
