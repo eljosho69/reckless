@@ -4,56 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reckless</title>
+    <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Background & Text Styling */
         body {
             background-color: black;
             color: #00FF00;
             font-family: "Px437 IBM VGA8", monospace;
             text-shadow: 0px 0px 15px rgba(0, 255, 0, 1);
-            text-align: center;
         }
 
-        /* Glow Effect */
-        @keyframes pulse {
-            0% { text-shadow: 0px 0px 10px rgba(0, 255, 0, 1); }
-            50% { text-shadow: 0px 0px 20px rgba(0, 255, 0, 1); }
-            100% { text-shadow: 0px 0px 10px rgba(0, 255, 0, 1); }
-        }
-
-        /* ASCII Art Styling */
-        pre.ascii {
-            font-size: 14px;
-            white-space: pre;
-            line-height: 1.2;
-            display: block;
-            text-align: center;
+        .ascii {
             animation: pulse 1.5s infinite alternate;
-            margin: 20px auto;
         }
 
-        /* Skull Positions */
-        pre.skull {
+        .skull {
             position: absolute;
             font-size: 12px;
             line-height: 1;
-            white-space: pre;
         }
 
-        pre.skull.left {
+        .skull.left {
             top: 10px;
             left: 10px;
+            text-align: left;
         }
 
-        pre.skull.right {
+        .skull.right {
             top: 10px;
             right: 10px;
+            text-align: right;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            animation: typing 3s steps(40, end) forwards;
         }
     </style>
 </head>
 <body>
 
-    <!-- One Skull in Top Left -->
+    <!-- Skulls in Top Left and Right Corners -->
     <pre class="skull left">
         ______
      .-'      `-.
@@ -75,7 +67,6 @@
      \_|__|__|_/
     </pre>
 
-    <!-- One Skull in Top Right -->
     <pre class="skull right">
         ______
      .-'      `-.
@@ -97,23 +88,23 @@
      \_|__|__|_/
     </pre>
 
-    <!-- ASCII Banner -->
-    <pre class="ascii">
+    <div class="container">
+        <pre class="ascii">
             ____    __    ____  _______  __        ______   ______   .___  ___.  _______              
             \   \  /  \  /   / |   ____||  |      /      | /  __  \  |   \/   | |   ____|             
              \   \/    \/   /  |  |__   |  |     |  ,----'|  |  |  | |  \  /  | |  |__                
               \            /   |   __|  |  |     |  |     |  |  |  | |  |\/|  | |   __|               
-               \    /\    /    |  |____ |  ----.|  ----.|  --'  | |  |  |  | |  |____              
+               \    /\    /    |  |____ |  `----.|  `----.|  `--'  | |  |  |  | |  |____              
                 \__/  \__/     |_______||_______| \______| \______/  |__|  |__| |_______|             
-    </pre>
+        </pre>
+    </div>
 
-    <p>Welcome to digital purgatory. Tread carefully, you never know what could be lurking about.</p>
-
+    <p class="typewriter">Welcome to digital purgatory. Tread carefully, you never know what could be lurking about.</p>
     <ul>
-        <li><a href="nfo/wifi-optimization.nfo">WIFI_OPTIMIZATION.nfo</a></li>
-        <li><a href="nfo/rtl-sdr-experiments.nfo">RTL-SDR Sorcery.nfo</a></li>
-        <li><a href="nfo/ascii-art-project.nfo">The Void.nfo</a></li>
-        <li><a href="nfo/unknown.nfo">???</a></li>
+        <li class="typewriter"><a href="nfo/wifi-optimization.nfo">WIFI_OPTIMIZATION.nfo</a></li>
+        <li class="typewriter"><a href="nfo/rtl-sdr-experiments.nfo">RTL-SDR Sorcery.nfo</a></li>
+        <li class="typewriter"><a href="nfo/ascii-art-project.nfo">The Void.nfo</a></li>
+        <li class="typewriter"><a href="nfo/unknown.nfo">???</a></li>
     </ul>
 
 </body>
