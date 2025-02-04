@@ -14,15 +14,6 @@
             text-align: center;
         }
 
-        /* Links */
-        a {
-            color: #FF007F;
-            text-decoration: none;
-        }
-        a:hover {
-            text-shadow: 0px 0px 20px rgba(255, 0, 127, 1);
-        }
-
         /* Glow Effect */
         @keyframes pulse {
             0% { text-shadow: 0px 0px 10px rgba(0, 255, 0, 1); }
@@ -36,14 +27,6 @@
             to { width: 100%; }
         }
 
-        .typewriter-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100px;
-            margin-top: 20px; /* Pushes the text down so it doesn't overlap */
-        }
-
         .typewriter {
             display: inline-block;
             white-space: nowrap;
@@ -53,11 +36,15 @@
             font-size: 18px;
         }
 
-        /* ASCII Art Glow */
-        .ascii {
-            animation: pulse 1.5s infinite alternate;
+        /* ASCII Art Formatting */
+        pre.ascii {
+            font-size: 14px;
+            white-space: pre;
+            line-height: 1.2;
+            display: block;
             text-align: center;
-            margin-bottom: 30px; /* Adds spacing so text doesn't overlap */
+            animation: pulse 1.5s infinite alternate;
+            margin: 20px auto;
         }
 
         /* Skulls Positioned in Corners */
@@ -65,6 +52,7 @@
             position: absolute;
             font-size: 12px;
             line-height: 1;
+            white-space: pre;
         }
 
         .skull.left {
@@ -126,16 +114,14 @@
     </pre>
 
     <!-- ASCII Banner -->
-    <div class="container">
-        <pre class="ascii">
+    <pre class="ascii">
             ____    __    ____  _______  __        ______   ______   .___  ___.  _______              
             \   \  /  \  /   / |   ____||  |      /      | /  __  \  |   \/   | |   ____|             
              \   \/    \/   /  |  |__   |  |     |  ,----'|  |  |  | |  \  /  | |  |__                
               \            /   |   __|  |  |     |  |     |  |  |  | |  |\/|  | |   __|               
                \    /\    /    |  |____ |  `----.|  `----.|  `--'  | |  |  |  | |  |____              
                 \__/  \__/     |_______||_______| \______| \______/  |__|  |__| |_______|             
-        </pre>
-    </div>
+    </pre>
 
     <!-- Typewriter Text Below the Banner -->
     <div class="typewriter-container">
