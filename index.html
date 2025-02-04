@@ -3,109 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reckless</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AlienTech Conspiracy</title>
     <style>
         body {
-            background-color: black;
-            color: #00FF00;
-            font-family: "Px437 IBM VGA8", monospace;
-            text-shadow: 0px 0px 15px rgba(0, 255, 0, 1);
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .ascii {
-            animation: pulse 1.5s infinite alternate;
+        h1, h2, p {
+            text-shadow: 0 0 25px #00ffcc, 0 0 35px #ff00ff;
         }
 
-        .skull {
+        .glitch {
+            font-size: 2.5rem;
+            position: relative;
+            color: #00ffcc;
+            text-transform: uppercase;
+            animation: glitch 1.5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { clip-path: inset(0% 0 10% 0); transform: translate(-5px, -5px); }
+            50% { clip-path: inset(80% 0 0 0); transform: translate(5px, 5px); }
+            100% { clip-path: inset(0% 0 10% 0); transform: translate(0, 0); }
+        }
+
+        /* 3D rotating cube fix */
+        .cube-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 800px;
+            width: 100vw;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: rotateCube 10s infinite linear;
+            position: relative;
+        }
+
+        .cube div {
             position: absolute;
-            font-size: 12px;
-            line-height: 1;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 0, 255, 0.3);
+            border: 3px solid #00ffcc;
+            box-shadow: 0 0 30px #00ffcc;
         }
 
-        .skull.left {
-            top: 10px;
-            left: 10px;
-            text-align: left;
+        @keyframes rotateCube {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
         }
 
-        .skull.right {
-            top: 10px;
-            right: 10px;
-            text-align: right;
+        /* Navigation Buttons */
+        .navigation {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
         }
 
-        .typewriter {
-            overflow: hidden;
-            white-space: nowrap;
-            display: inline-block;
-            animation: typing 3s steps(40, end) forwards;
+        .button {
+            background-color: #111;
+            color: #FFF;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 0 30px #00ffcc, 0 0 50px #ff00ff;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            background-color: #00ffcc;
+            color: #000;
+            box-shadow: 0 0 40px #00ffcc, 0 0 60px #ff00ff;
+        }
+
+        /* Responsive fixes */
+        @media (max-width: 768px) {
+            .cube {
+                width: 150px;
+                height: 150px;
+            }
+            .cube div {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
+    <h1 class="glitch">AlienTech Conspiracy</h1>
 
-    <!-- Skulls in Top Left and Right Corners -->
-    <pre class="skull left">
-        ______
-     .-'      `-.
-    /            \
-   |              |
-   |,  .-.  .-.  ,|
-   | )(_o/  \o_)( |
-   |/     /\     \|
-   (_     ^^     _)
-    \__|IIIIII|__/
-     | \IIIIII/ |
-     \          /
-      `--------`
-      /        \
-     /          \
-    |           |
-    |  |  |  |  |
-    |  |  |  |  |
-     \_|__|__|_/
-    </pre>
-
-    <pre class="skull right">
-        ______
-     .-'      `-.
-    /            \
-   |              |
-   |,  .-.  .-.  ,|
-   | )(_o/  \o_)( |
-   |/     /\     \|
-   (_     ^^     _)
-    \__|IIIIII|__/
-     | \IIIIII/ |
-     \          /
-      `--------`
-      /        \
-     /          \
-    |           |
-    |  |  |  |  |
-    |  |  |  |  |
-     \_|__|__|_/
-    </pre>
-
-    <div class="container">
-        <pre class="ascii">
-            ____    __    ____  _______  __        ______   ______   .___  ___.  _______              
-            \   \  /  \  /   / |   ____||  |      /      | /  __  \  |   \/   | |   ____|             
-             \   \/    \/   /  |  |__   |  |     |  ,----'|  |  |  | |  \  /  | |  |__                
-              \            /   |   __|  |  |     |  |     |  |  |  | |  |\/|  | |   __|               
-               \    /\    /    |  |____ |  `----.|  `----.|  `--'  | |  |  |  | |  |____              
-                \__/  \__/     |_______||_______| \______| \______/  |__|  |__| |_______|             
-        </pre>
+    <div class="cube-container">
+        <div class="cube">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
-    <p class="typewriter">Welcome to digital purgatory. Tread carefully, you never know what could be lurking about.</p>
-    <ul>
-        <li class="typewriter"><a href="nfo/wifi-optimization.nfo">WIFI_OPTIMIZATION.nfo</a></li>
-        <li class="typewriter"><a href="nfo/rtl-sdr-experiments.nfo">RTL-SDR Sorcery.nfo</a></li>
-        <li class="typewriter"><a href="nfo/ascii-art-project.nfo">The Void.nfo</a></li>
-        <li class="typewriter"><a href="nfo/unknown.nfo">???</a></li>
-    </ul>
-
+    <!-- Navigation Buttons -->
+    <div class="navigation">
+        <a href="#about" class="button">About Us</a>
+        <a href="#services" class="button">Services</a>
+        <a href="#portfolio" class="button">Portfolio</a>
+        <a href="#contact" class="button">Contact</a>
+    </div>
 </body>
 </html>
