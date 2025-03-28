@@ -4,146 +4,348 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Joshua Wilson's Cyberpunk Portfolio - Creative Developer">
     <title>Joshua Wilson's Portfolio</title>
     <style>
+        :root {
+            --neon-cyan: #00ffcc;
+            --neon-pink: #ff00ff;
+            --dark-bg: #000;
+            --card-bg: rgba(15, 15, 15, 0.8);
+        }
+        
+        @font-face {
+            font-family: 'Cyber';
+            src: url('https://fonts.cdnfonts.com/css/cyberpunk-is-not-dead') format('woff2');
+            font-display: swap;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
             margin: 0;
             padding: 50px 0 0 0;
-            background-color: #000;
-            color: #00ffcc;
-            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--dark-bg);
+            color: var(--neon-cyan);
+            font-family: 'Cyber', 'Courier New', monospace;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
             overflow-x: hidden;
-            overflow: visible;
-        }
-
-        h1 {
-            text-shadow: 0 0 25px #00ffcc, 0 0 35px #ff00ff;
-            margin-top: 20px;
-        }
-
-        .glitch {
-            font-size: 2.5rem;
             position: relative;
-            color: #00ffcc;
+        }
+        
+        /* Cyberpunk Scanlines Overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
+            background-size: 4px 4px;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-pink);
+            margin: 20px 0;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        .glitch {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            position: relative;
+            color: var(--neon-cyan);
             text-transform: uppercase;
-            animation: glitch 1.5s infinite;
+            animation: glitch 2.5s infinite alternate;
         }
-
+        
         @keyframes glitch {
-            0% { clip-path: inset(0% 0 10% 0); transform: translate(-5px, -5px); }
-            50% { clip-path: inset(80% 0 0 0); transform: translate(5px, 5px); }
-            100% { clip-path: inset(0% 0 10% 0); transform: translate(0, 0); }
+            0%, 100% { 
+                text-shadow: 2px 0 var(--neon-cyan), -2px 0 var(--neon-pink); 
+            }
+            25% { 
+                text-shadow: -2px 0 var(--neon-cyan), 2px 0 var(--neon-pink); 
+            }
+            50% { 
+                text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-cyan); 
+            }
+            75% { 
+                text-shadow: -2px 0 var(--neon-pink), 2px 0 var(--neon-cyan); 
+            }
         }
-
+        
         /* 3D Cube */
         .cube-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            perspective: 800px;
-            width: 100vw;
+            perspective: 1000px;
+            width: 100%;
             height: 300px;
-            margin-top: 40px;
+            margin: 40px 0;
         }
-
+        
         .cube {
             width: 200px;
             height: 200px;
             position: relative;
             transform-style: preserve-3d;
-            animation: rotateCube 5s infinite linear;
+            animation: rotateCube 20s infinite linear;
+            will-change: transform;
         }
-
-        .cube div {
+        
+        .cube-face {
             position: absolute;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 0, 255, 0.3);
-            border: 3px solid #00ffcc;
-            box-shadow: 0 0 30px #00ffcc;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 0, 255, 0.15);
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 30px var(--neon-cyan),
+                        inset 0 0 30px var(--neon-cyan);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            backface-visibility: hidden;
+            transition: all 0.3s ease;
         }
-
-        .cube div:nth-child(1) { transform: rotateY(0deg) translateZ(100px); }
-        .cube div:nth-child(2) { transform: rotateY(90deg) translateZ(100px); }
-        .cube div:nth-child(3) { transform: rotateY(180deg) translateZ(100px); }
-        .cube div:nth-child(4) { transform: rotateY(-90deg) translateZ(100px); }
-        .cube div:nth-child(5) { transform: rotateX(90deg) translateZ(100px); }
-        .cube div:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); }
-
+        
+        /* Cube face patterns */
+        .cube-face::before {
+            content: "";
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            background: 
+                linear-gradient(45deg, transparent 45%, var(--neon-cyan) 45%, var(--neon-cyan) 55%, transparent 55%),
+                linear-gradient(-45deg, transparent 45%, var(--neon-cyan) 45%, var(--neon-cyan) 55%, transparent 55%);
+            background-size: 10px 10px;
+            opacity: 0.3;
+        }
+        
+        .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(100px); }
+        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(100px); }
+        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(100px); }
+        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(100px); }
+        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(100px); }
+        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(100px); }
+        
         @keyframes rotateCube {
             0% { transform: rotateX(0deg) rotateY(0deg); }
             100% { transform: rotateX(360deg) rotateY(360deg); }
         }
-
+        
         /* Navigation Buttons */
         .navigation {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin: 30px 0;
+            gap: 15px;
         }
-
+        
         .button {
-            background-color: #111;
-            color: #FFF;
+            background-color: var(--card-bg);
+            color: white;
             padding: 15px 30px;
-            margin: 10px;
-            font-size: 1.2rem;
-            border-radius: 10px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            border-radius: 5px;
             text-transform: uppercase;
             text-decoration: none;
-            box-shadow: 0 0 30px #00ffcc, 0 0 50px #ff00ff;
-            transition: background-color 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan),
+                        0 0 30px var(--neon-pink);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
-
+        
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
         .button:hover {
-            background-color: #00ffcc;
-            color: #000;
-            box-shadow: 0 0 40px #00ffcc, 0 0 60px #ff00ff;
+            color: black;
+            box-shadow: 0 0 20px var(--neon-cyan),
+                        0 0 40px var(--neon-pink);
         }
-
-        /* Responsive fixes */
+        
+        .button:hover::before {
+            left: 100%;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
             .cube {
                 width: 150px;
                 height: 150px;
             }
-            .cube div {
+            .cube-face {
                 width: 150px;
                 height: 150px;
+            }
+            .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(75px); }
+            .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(75px); }
+            .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(75px); }
+            .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(75px); }
+            .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(75px); }
+            .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(75px); }
+            
+            .navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion) {
+            .glitch {
+                animation: none;
+                text-shadow: 0 0 10px var(--neon-cyan);
+            }
+            
+            .cube {
+                animation: rotateCube 60s infinite linear;
+            }
+            
+            .button::before {
+                animation: none;
             }
         }
     </style>
 </head>
 <body>
+    <h1 class="glitch">JOSHUA WILSON</h1>
     
-
     <div class="cube-container">
         <div class="cube">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="cube-face">DEV</div>
+            <div class="cube-face">CODE</div>
+            <div class="cube-face">CYBER</div>
+            <div class="cube-face">TECH</div>
+            <div class="cube-face">WEB</div>
+            <div class="cube-face">3D</div>
         </div>
     </div>
 
     <!-- Navigation Buttons -->
-    <div class="navigation">
-        <a href="#about" class="button">Case Studies</a>
+    <nav class="navigation" aria-label="Main navigation">
+        <a href="#about" class="button" aria-current="page">Case Studies</a>
         <a href="#services" class="button">Code</a>
         <a href="image_gallery.html" class="button">Creatives</a>
-        <a href="#contact" class="button">Learn more</a>
-    </div>
+        <a href="#contact" class="button">Contact</a>
+    </nav>
+    
     <!-- HTML Code Page Link -->
     <div class="navigation">
         <a href="html_code.html" class="button">View HTML Code</a>
     </div>
+
+    <!-- Particle JS Background -->
+    <canvas class="particles"></canvas>
+
+    <script>
+        // Interactive Cube
+        const cubeContainer = document.querySelector('.cube-container');
+        const cube = document.querySelector('.cube');
+        
+        cubeContainer.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 768) { // Only on desktop
+                const rect = cubeContainer.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                
+                cube.style.transform = `rotateX(${(y - 0.5) * -30}deg) rotateY(${(x - 0.5) * 30}deg)`;
+            }
+        });
+        
+        cubeContainer.addEventListener('mouseleave', () => {
+            cube.style.transform = '';
+        });
+        
+        // Particles Background
+        const canvas = document.querySelector('.particles');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = window.innerWidth < 768 ? 30 : 100;
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 3 + 1,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5,
+                color: Math.random() > 0.5 ? 'rgba(0, 255, 204, 0.8)' : 'rgba(255, 0, 255, 0.8)'
+            });
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                
+                p.x += p.speedX;
+                p.y += p.speedY;
+                
+                if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+            }
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        animateParticles();
+        
+        // Responsive adjustments
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
