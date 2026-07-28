@@ -23,16 +23,6 @@ description:
 },
 
 {
-id:"aisha",
-label:"Aisha Hadith",
-type:"hadith",
-x:590,
-y:220,
-description:
-"Historical discussion surrounding reports about Aisha's age, transmission, authenticity, and interpretation."
-},
-
-{
 id:"freewill",
 label:"Free Will",
 type:"philosophy",
