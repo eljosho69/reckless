@@ -1,45 +1,71 @@
 const atlas = {
 
+layout:{
+    type:"tree",
+    direction:"TB",      // Top → Bottom
+    fixed:true,
+    nodeShape:"square",
+    edgeStyle:"orthogonal",
+    spacingX:180,
+    spacingY:120
+},
+
+theme:{
+    background:"#070B14",
+    grid:false,
+
+    node:{
+        shape:"square",
+        width:170,
+        height:60,
+        border:"#5EF2FF",
+        borderWidth:2,
+        background:"#0F172A",
+        text:"#E8F9FF",
+        glow:"#00E5FF",
+        glowBlur:20,
+        shadow:true
+    },
+
+    edge:{
+        color:"#66F7FF",
+        width:2,
+        glow:"#00FFFF",
+        glowBlur:12,
+        arrows:false
+    }
+},
+
 nodes:[
 
 {
 id:"tawheed",
 label:"Tawheed",
-type:"theology",
-x:400,
-y:80
+level:0
 },
 
 {
 id:"dilemma",
 label:"Islamic Dilemma",
-type:"theology",
-x:590,
-y:220
+level:1
 },
 
 {
 id:"freewill",
 label:"Free Will",
-type:"philosophy",
-x:520,
-y:500
+level:1
 },
 
 {
 id:"science",
 label:"Science",
-type:"epistemology",
-x:280,
-y:500
+level:2
 },
 
 {
 id:"prophecy",
 label:"Continuity of Prophecy",
-type:"theology",
-x:210,
-y:220
+level:2
 }
 
 ],
@@ -48,17 +74,12 @@ edges:[
 
 {
 source:"tawheed",
-target:"freewill"
-},
-
-{
-source:"freewill",
-target:"prophecy"
-},
-
-{
-source:"prophecy",
 target:"dilemma"
+},
+
+{
+source:"tawheed",
+target:"freewill"
 },
 
 {
@@ -67,8 +88,8 @@ target:"science"
 },
 
 {
-source:"science",
-target:"tawheed"
+source:"freewill",
+target:"prophecy"
 }
 
 ]
