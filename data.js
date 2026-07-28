@@ -6,62 +6,60 @@ nodes:[
 id:"tawheed",
 label:"Tawheed",
 type:"theology",
+x:400,
+y:300,
 description:
 "Central theological foundation concerning divine unity, God's nature, attributes, and the metaphysical basis of Islamic belief."
 },
-
 
 {
 id:"dilemma",
 label:"Islamic Dilemma",
 type:"theology",
+x:400,
+y:80,
 description:
-"Argument examining tensions between Islamic claims about revelation, previous scriptures, and competing theological positions."
+"Argument examining tensions between Islamic claims about revelation and competing theological positions."
 },
-
 
 {
 id:"aisha",
 label:"Aisha Hadith",
 type:"hadith",
+x:590,
+y:220,
 description:
-"Historical discussion surrounding reports about Aisha's age at marriage, hadith transmission, authenticity, and interpretation."
+"Historical discussion surrounding reports about Aisha's age, transmission, authenticity, and interpretation."
 },
-
 
 {
 id:"freewill",
 label:"Free Will",
 type:"philosophy",
+x:520,
+y:500,
 description:
-"Philosophical exploration of divine omniscience, qadar, human agency, causation, and responsibility."
+"Exploration of qadar, divine omniscience, human agency, and responsibility."
 },
-
 
 {
 id:"science",
 label:"Science",
 type:"epistemology",
+x:280,
+y:500,
 description:
-"Discussion concerning the relationship between scientific knowledge, revelation, cosmology, and explanations of the natural world."
+"Relationship between scientific knowledge, revelation, cosmology, and the natural world."
 },
-
 
 {
 id:"prophecy",
 label:"Continuity of Prophecy",
 type:"theology",
+x:210,
+y:220,
 description:
-"Exploration of prophetic continuity from earlier prophets through Muhammad, including revelation, succession, and finality."
-},
-
-
-{
-id:"premises",
-label:"Logical Premises",
-type:"logic",
-description:
-"Breakdown of assumptions, arguments, and logical structures used within theological discussions."
+"Exploration of prophetic continuity from earlier prophets through Muhammad."
 }
 
 ],
@@ -70,8 +68,41 @@ description:
 edges:[
 
 {
+source:"dilemma",
+target:"aisha"
+},
+
+{
+source:"aisha",
+target:"freewill"
+},
+
+{
+source:"freewill",
+target:"science"
+},
+
+{
+source:"science",
+target:"prophecy"
+},
+
+{
+source:"prophecy",
+target:"dilemma"
+},
+
+
+// center connections
+
+{
 source:"tawheed",
 target:"dilemma"
+},
+
+{
+source:"tawheed",
+target:"aisha"
 },
 
 {
@@ -87,32 +118,6 @@ target:"science"
 {
 source:"tawheed",
 target:"prophecy"
-},
-
-
-{
-source:"dilemma",
-target:"premises"
-},
-
-{
-source:"aisha",
-target:"premises"
-},
-
-{
-source:"freewill",
-target:"premises"
-},
-
-{
-source:"science",
-target:"premises"
-},
-
-{
-source:"prophecy",
-target:"premises"
 }
 
 ]
